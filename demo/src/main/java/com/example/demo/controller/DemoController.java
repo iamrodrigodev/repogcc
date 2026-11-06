@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
@@ -19,7 +20,7 @@ public class DemoController {
     }
 
     @PostMapping("/productos/nuevo")
-    public Map<String,Object> registrarProducto(Map<String,Object> nuevo) {
+    public Map<String,Object> registrarProducto(@RequestBody Map<String,Object> nuevo) {
         Date ahora = new Date();
         nuevo.put("id", ahora.getTime());
         return nuevo;
